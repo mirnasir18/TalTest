@@ -1,0 +1,57 @@
+<form class="input-group-form" [formGroup]="member">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" formControlName="name" required class="form-control">
+    <span *ngIf="(f['name'].dirty || isSubmitted) && f['name'].errors" class="error">Name is
+      Required</span>
+  </div>
+  <div class="form-group">
+    <label>Date of Birth</label>
+    <input type="date" (change)="calculate_Age()" formControlName="date_of_birth" class="form-control">
+    <span *ngIf="(f['date_of_birth'].dirty || isSubmitted) && f['date_of_birth']?.errors?.['required']" class="error">
+      Date of Birth is Required
+    </span>
+    <span *ngIf="(f['date_of_birth'].dirty || isSubmitted) && f['date_of_birth']?.errors?.['pattern']" class="error">
+      Invalid Date of Birth
+    </span>
+  </div>
+  <div class="form-group" *ngIf="f['date_of_birth'].value && !f['date_of_birth'].errors">
+    <label>Age (Years)</label>
+    <input type=" number" readonly formControlName="age" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Death - Sum Insured</label>
+    <input type="text" formControlName="death_sum_insured" class="form-control">
+    <span *ngIf="(f['death_sum_insured'].dirty || isSubmitted) && f['death_sum_insured'].errors" class="error">
+      Death - Sum Insured is Required
+    </span>
+  </div>
+  <div class="form-group">
+    <label>Occupation</label>
+    <select class="form-control" (change)="onOccupation_Select()" formControlName="occupation">
+      <option value="">Select an option</option>
+      <option *ngFor="let ocp of occupations" [value]="ocp.id">
+        {{ocp.occupation_desc}}
+      </option>
+    </select>
+    <span *ngIf="(f['occupation'].dirty || isSubmitted) && f['occupation'].errors" class="error">
+      Occupation is Required
+    </span>
+  </div>
+  <div *ngIf="member.controls['occupation'].value">
+    <div class="form-group">
+      <label>Rating</label>
+      <input type="text" readonly formControlName="rating" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Factor</label>
+      <input type="number" readonly formControlName="factor" class="form-control">
+    </div>
+  </div>
+</form>
+<div class="d-1">
+  <h2>Death Premium</h2>
+  <div class="d-2">
+    $ {{' '+DeathPremium}}
+  </div>
+</div>
