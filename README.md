@@ -1,11 +1,6 @@
-# Development Project
-To gain a better understanding of your technical, design and logic skills, we would like you to create a project using the technologies of your choice (preferably .NET, C#, AngularJS, Angular) with the following requirements.
 
- 
-# Task
-As a Member I would like to have an ability to choose various options on the screen So that I can view the monthly premiums calculated and displayed on the screen
+# This project will is developed in .net core as back end and Anular 15 as front end.
 
- 
 
 # Develop an UI which accepts the below data and return a monthly premium amount to be calculated.
 
@@ -17,8 +12,6 @@ Death – Sum Insured.
  
 
 The UI provides a below list of occupations
-
- 
 
 Occupation
 
@@ -84,4 +77,4 @@ For any given individual the monthly premium is calculated using the below formu
 Death Premium = (Death Cover amount * Occupation Rating Factor * Age) /1000 * 12
 
 All input fields are mandatory.
-Given all the input fields are specified, change in the occupation dropdown should trigger the premium calculation
+Given all the input fields are specified, change in the occupation dropdown  trigger the premium calculation
